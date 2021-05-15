@@ -2,11 +2,11 @@ package com.sapient.entity;
 
 public class Message {
 	private int mId;
-	private int senderId; 
-	private int recevrId; 
-	private String message; 
-	private String isAccepted; 
-	
+	private int senderId;
+	private int recevrId;
+	private String message;
+	private String isAccepted;
+
 	public Message() {
 	}
 
@@ -64,9 +64,5 @@ public class Message {
 		return "Message [mId=" + mId + ", senderId=" + senderId + ", recevrId=" + recevrId + ", message=" + message
 				+ ", isAccepted=" + isAccepted + "]";
 	}
-	
-	
-	
-	
-	
+
 }

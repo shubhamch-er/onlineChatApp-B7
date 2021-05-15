@@ -213,7 +213,6 @@ public class GroupUserRelationDAO implements IGroupUserRelationDAO {
 				PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql);
 				ps.setInt(1, groupId);
 				ps.setInt(2, userId);
-				
 
 				int rs = ps.executeUpdate();
 				if (rs > 0) {

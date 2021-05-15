@@ -28,7 +28,7 @@ public class MessageDAO implements IMessageDAO {
 			e.printStackTrace();
 		}
 
-		  return false;
+		return false;
 	}
 
 	public Message getMessage(int mId) {
@@ -74,9 +74,9 @@ public class MessageDAO implements IMessageDAO {
 				message.setRecevrId(rs.getInt(3));
 				message.setMessage(rs.getString(4));
 				message.setIsAccepted(rs.getString(5));
-				
+
 				list.add(message);
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
