@@ -1,4 +1,4 @@
-package com.sapient.chat.controller;
+package com.sapient.controller;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sapient.chat.dao.MessageRequestDAO;
-import com.sapient.chat.entity.MessageRequest;
-import com.sapient.chat.interfaces.IMessageRequestDAO;
+import com.sapient.dao.MessageRequestDAO;
+import com.sapient.entity.MessageRequest;
+import com.sapient.interfaces.IMessageRequestDAO;
 
 @RestController
 @RequestMapping("/api")

@@ -1,4 +1,4 @@
-package com.sapient.chat.exceptions;
+package com.sapient.exceptions;
 
 public class EmailNotValidException extends Exception {
 
@@ -9,6 +9,7 @@ public class EmailNotValidException extends Exception {
 	}
 
 	public EmailNotValidException(String message) {
+		super();
 		this.message = message;
 	}
 
