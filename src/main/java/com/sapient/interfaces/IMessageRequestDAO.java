@@ -1,8 +1,8 @@
-package com.sapient.chat.interfaces;
+package com.sapient.interfaces;
 
 import java.util.List;
 
-import com.sapient.chat.entity.MessageRequest;
+import com.sapient.entity.MessageRequest;
 
 public interface IMessageRequestDAO {
 	//save

@@ -1,10 +1,10 @@
-package com.sapient.chat.exceptions;
+package com.sapient.exceptions;
 
 public class AgeLessThan18Exception extends Exception {
 	private String message;
 
 	public AgeLessThan18Exception() {
-		message = "Age must be more than 18 years";
+		message = "Age not Valid";
 	}
 
 	public AgeLessThan18Exception(String message) {

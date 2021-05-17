@@ -1,11 +1,11 @@
-package com.sapient.chat.interfaces;
+package com.sapient.interfaces;
 
 import java.time.LocalDate;
 
-import com.sapient.chat.exceptions.AgeLessThan18Exception;
-import com.sapient.chat.exceptions.EmailNotValidException;
-import com.sapient.chat.exceptions.NameTooSmallException;
-import com.sapient.chat.exceptions.PasswordNotStrongException;
+import com.sapient.exceptions.AgeLessThan18Exception;
+import com.sapient.exceptions.EmailNotValidException;
+import com.sapient.exceptions.NameTooSmallException;
+import com.sapient.exceptions.PasswordNotStrongException;
 
 public interface IUpdateProfileDAO {
 	//Update email

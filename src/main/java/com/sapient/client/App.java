@@ -1,28 +1,28 @@
-package com.sapient.chat.client;
+package com.sapient.client;
 
 import java.sql.Date;
 import java.time.LocalDate;
 
-import com.sapient.chat.dao.MessageRequestDAO;
-import com.sapient.chat.dao.UpdateProfileDAO;
-import com.sapient.chat.entity.MessageRequest;
-import com.sapient.chat.exceptions.AgeLessThan18Exception;
-import com.sapient.chat.exceptions.EmailNotValidException;
-import com.sapient.chat.exceptions.NameTooSmallException;
-import com.sapient.chat.exceptions.PasswordNotStrongException;
-import com.sapient.chat.interfaces.IMessageRequestDAO;
-import com.sapient.chat.interfaces.IUpdateProfileDAO;
+import com.sapient.dao.MessageRequestDAO;
+import com.sapient.dao.UpdateProfileDAO;
+import com.sapient.entity.MessageRequest;
+import com.sapient.exceptions.AgeLessThan18Exception;
+import com.sapient.exceptions.EmailNotValidException;
+import com.sapient.exceptions.NameTooSmallException;
+import com.sapient.exceptions.PasswordNotStrongException;
+import com.sapient.interfaces.IMessageRequestDAO;
+import com.sapient.interfaces.IUpdateProfileDAO;
 
 public class App {
 	public static void main(String[] args) {
-		MessageRequest m = new MessageRequest();
-		m.setSenderId(10005);
-		m.setReceiverId(10003);
-		m.setMessageBody("Hi");
-		m.setIsAccepted(1);
-
-		IMessageRequestDAO dao = new MessageRequestDAO();
-		IUpdateProfileDAO dao1 = new UpdateProfileDAO();
+//		MessageRequest m = new MessageRequest();
+//		m.setSenderId(10005);
+//		m.setReceiverId(10003);
+//		m.setMessageBody("Hi");
+//		m.setIsAccepted(1);
+//
+//		IMessageRequestDAO dao = new MessageRequestDAO();
+//		IUpdateProfileDAO dao1 = new UpdateProfileDAO();
 
 //		try {
 //			System.out.println(dao1.updateName(10001, "User1")? "Name Updated" : "Name Not Updated");
