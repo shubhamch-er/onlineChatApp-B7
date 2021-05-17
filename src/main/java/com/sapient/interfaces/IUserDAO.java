@@ -4,20 +4,20 @@ import java.util.List;
 
 import com.sapient.entity.User;
 import com.sapient.entity.UserProfile;
+import com.sapient.params.DeleteUserParams;
+import com.sapient.params.Loginparams;
 
 public interface IUserDAO {
 	
 	public boolean registerUser(User user);
 	
-	public boolean loginUser(String email,String password);
+	public boolean loginUser(Loginparams params);
 	
 	public UserProfile getUser(String userId);
 	
-	public boolean changePassword(String email,String password);
+	public boolean deleteUser(DeleteUserParams params);
 	
-	public boolean deleteUser(String email,String password);
-	
-	public List<User> getAllUsers();
+	public List<UserProfile> getAllUsers();
 	
 
 }
