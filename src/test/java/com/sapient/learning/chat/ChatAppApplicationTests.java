@@ -1,10 +1,10 @@
-package com.sapient.chat;
+package com.sapient.learning.chat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CahtAppApplicationTests {
+class ChatAppApplicationTests {
 
 	@Test
 	void contextLoads() {

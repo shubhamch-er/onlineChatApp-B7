@@ -1,13 +1,12 @@
-package com.sapient.chat;
+package com.sapient.learning.chat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CahtAppApplication {
+public class ChatAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CahtAppApplication.class, args);
+		SpringApplication.run(ChatAppApplication.class, args);
 	}
-
 }
