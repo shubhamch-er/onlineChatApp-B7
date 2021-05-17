@@ -1,4 +1,4 @@
-package com.sapient.chat.dao;
+package com.sapient.dao;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -9,20 +9,20 @@ import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAccessor;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import com.sapient.chat.exceptions.AgeLessThan18Exception;
-import com.sapient.chat.exceptions.EmailNotValidException;
-import com.sapient.chat.exceptions.NameTooSmallException;
-import com.sapient.chat.exceptions.PasswordNotStrongException;
-import com.sapient.chat.interfaces.IUpdateProfileDAO;
-import com.sapient.chat.utils.GetConnection;
+import com.sapient.exceptions.AgeLessThan18Exception;
+import com.sapient.exceptions.EmailNotValidException;
+import com.sapient.exceptions.NameTooSmallException;
+import com.sapient.exceptions.PasswordNotStrongException;
+import com.sapient.interfaces.IUpdateProfileDAO;
+import com.sapient.utils.GetConnection;
 
 public class UpdateProfileDAO implements IUpdateProfileDAO{
 
 	public boolean updateEmail(int userId, String email) throws EmailNotValidException{
-		// TODO Auto-generated method stub
 		
 		boolean isEmail = false;
 		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
@@ -39,7 +39,6 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 			ps.setInt(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -47,7 +46,6 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 	}
 
 	public boolean updateName(int userId, String name) throws NameTooSmallException{
-		// TODO Auto-generated method stub
 		if(name.length() < 1)
 			throw new NameTooSmallException();
 		
@@ -58,7 +56,6 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 			ps.setInt(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
@@ -69,18 +66,18 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 		//Checking password strength
 		String strength;
 		int n = password.length();
-        boolean hasLower = false, hasUpper = false, hasDigit = false, specialChar = false;
+        boolean hasLower = false, hasUpper = false, hasDigit = false, hasSpecialChar = false;
         Set<Character> set = new HashSet<Character>(Arrays.asList('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+'));
         
         for (char i : password.toCharArray()) {
             if (Character.isLowerCase(i)) hasLower = true;
             if (Character.isUpperCase(i)) hasUpper = true;
             if (Character.isDigit(i)) hasDigit = true;
-            if (set.contains(i)) specialChar = true;
+            if (set.contains(i)) hasSpecialChar = true;
         }
         
-        if (hasDigit && hasLower && hasUpper && specialChar && (n >= 8)) strength = "Strong";
-        else if ((hasLower || hasUpper || specialChar) && (n >= 6)) strength = "Moderate";
+        if (hasDigit && hasLower && hasUpper && hasSpecialChar && (n >= 8)) strength = "Strong";
+        else if ((hasLower || hasUpper || hasSpecialChar) && (n >= 6)) strength = "Moderate";
         else strength = "Weak";
         
         if(strength == "Weak")
@@ -94,34 +91,30 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 			ps.setInt(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
 	}
 
 	public boolean updateDOB(int userId, LocalDate dob) throws AgeLessThan18Exception{
-		// TODO Auto-generated method stub
 		LocalDate start = LocalDate.from((TemporalAccessor) dob);
 		LocalDate end = LocalDate.now();
-		long age = ChronoUnit.YEARS.between(start, (Temporal) end);
+		int age = (int)ChronoUnit.YEARS.between(start, (Temporal) end);
 		
 		Date date = Date.valueOf(dob);
 		
 		if(age < 18)
 			throw new AgeLessThan18Exception();
 		
-		String sql = "update users set dob = ? where user_id = ?";
 		try {
+			String sql = "update users set dob = ? where user_id = ?";
 			PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql);
 			ps.setDate(1, date);
 			ps.setInt(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
-	}
-	
+	}	
 }

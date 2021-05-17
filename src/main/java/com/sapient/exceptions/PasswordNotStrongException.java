@@ -1,4 +1,4 @@
-package com.sapient.chat.exceptions;
+package com.sapient.exceptions;
 
 public class PasswordNotStrongException extends Exception {
 	private String message;

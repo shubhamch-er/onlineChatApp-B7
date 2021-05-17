@@ -1,4 +1,4 @@
-package com.sapient.chat.entity;
+package com.sapient.entity;
 
 public class MessageRequest {
 	private int requestId;
@@ -12,7 +12,6 @@ public class MessageRequest {
 	}
 
 	public MessageRequest(int requestId, int senderId, int receiverId, String messageBody, int isAccepted) {
-		super();
 		this.requestId = requestId;
 		this.senderId = senderId;
 		this.receiverId = receiverId;
@@ -27,8 +26,6 @@ public class MessageRequest {
 	public void setRequestId(int requestId) {
 		this.requestId = requestId;
 	}
-
-	
 
 	public int getSenderId() {
 		return senderId;

@@ -1,19 +1,18 @@
-package com.sapient.chat.entity;
+package com.sapient.entity;
 
 import java.time.LocalDate;
 
-public class UpdateProfile {
+public class Profile {
 	private String email;
 	private String password;
 	private String name;
 	private LocalDate dob;
 
-	public UpdateProfile() {
+	public Profile() {
 
 	}
 
-	public UpdateProfile(String email, String password, String name, LocalDate dob) {
-		super();
+	public Profile(String email, String password, String name, LocalDate dob) {
 		this.email = email;
 		this.password = password;
 		this.name = name;
